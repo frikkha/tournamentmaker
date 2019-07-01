@@ -101,7 +101,11 @@ class TournamentModal extends Component{
                     isOpen={this.state.modal}
                     toggle={this.toggle}
                 >
-                    <ModalHeader toggle={this.toggle}>Create Tournament </ModalHeader>
+                    <ModalHeader toggle={this.toggle}>
+                        <h5>Create Tournament </h5>
+                        <div style={{ fontSize: '10pt', color: 'grey' }}> You are now creating a new tournament. Enter the name of the teams participating in your tournament below.
+                            Click "Add another team" to add a new team to your tournament. If you want to delete a team, click the '-' button. </div>
+                    </ModalHeader>
                     <ModalBody>
                         <Form onSubmit={this.onSubmit}>
                             <FormGroup>
@@ -113,7 +117,7 @@ class TournamentModal extends Component{
                                 />
                                 <h4>Teams</h4>
                                 {this.state.teams.map((team, id) => (
-                                    <div className="team" key={this.state.teams.name}>
+                                    <div className="team" key={this.state.teams.name} style={{display: 'flex'}}>
                                         <Input
                                             type="text"
                                             placeholder={`Team #${id + 1} name`}
@@ -134,7 +138,7 @@ class TournamentModal extends Component{
                                     onClick={this.handleAddTeam}
                                     className="small"
                                 >
-                                    Add team
+                                    Add another team
                                 </Button>
                                 <Button color='dark' style={{marginTop: '2rem'}} block> Create new tournament </Button>
                             </FormGroup>

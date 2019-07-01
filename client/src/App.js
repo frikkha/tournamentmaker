@@ -6,7 +6,7 @@ import {Provider} from 'react-redux';
 import store from './store';
 import {Container} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import {BrowserRouter, Route} from "react-router-dom";
 
 
 
@@ -18,10 +18,15 @@ class App extends Component {
         <Provider store={store}>
             <div className="App">
                 <AppNavbar/>
-                <Container>
-                    <Tournament/>
-                    <TournamentModal/>
-                </Container>
+                <BrowserRouter>
+                    <Route path={'/'} exact render ={ () => (
+                        <Container>
+                            <Tournament/>
+                            <TournamentModal/>
+                        </Container>
+                    )}
+                    />
+                </BrowserRouter>
             </div>
         </Provider>
     );

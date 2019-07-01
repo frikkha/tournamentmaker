@@ -5,7 +5,6 @@ import {
     ListGroup,
     Button
 } from 'reactstrap';
-import {CSSTransition, TransitionGroup} from 'react-transition-group';
 import {getTournaments, deleteTournament} from "../actions/TournamentActions";
 import {connect} from  'react-redux';
 import PropTypes from 'prop-types';
@@ -28,9 +27,7 @@ class Tournament extends Component {
         return (
             <Container>
                 <ListGroup>
-                    <TransitionGroup className ='tournament-list'>
                         {tournaments.map(({_id, name}) => (
-                            <CSSTransition key={_id} timeout={500} classNames = 'fade'>
                                 <ListGroupItem>
                                     <Button
                                         className = 'remove-btn'
@@ -42,9 +39,7 @@ class Tournament extends Component {
                                     </Button>
                                     {' ' + name}
                                 </ListGroupItem>
-                            </CSSTransition>
                         ))}
-                    </TransitionGroup>
                 </ListGroup>
             </Container>
         );
